@@ -36,6 +36,7 @@ const PageFlipCard = ({
                   const pageIndex = (
                     document.getElementById('goToPage') as HTMLInputElement
                   ).valueAsNumber
+
                   if (pageIndex <= page.lastPage)
                     window.location.href = `${rootURL}/${
                       pageIndex === 1 ? '' : pageIndex

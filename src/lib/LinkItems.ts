@@ -12,7 +12,7 @@ const LinkItems: LinkItemType[] = [
         title: 'About'
     }, {
         href: '/blog',
-        icon: 'info',
+        icon: 'book',
         title: 'Blog'
     }];
 

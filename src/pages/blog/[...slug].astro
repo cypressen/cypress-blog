@@ -1,5 +1,6 @@
 ---
 import RootLayout from '@/layouts/RootLayout/RootLayout.astro'
+import Giscus from '@/components/giscus/Giscus.astro'
 import { type CollectionEntry, getCollection } from 'astro:content'
 
 export async function getStaticPaths() {
@@ -17,5 +18,5 @@ const { Content } = await post.render()
 
 <RootLayout>
   <Content slot="content" />
-  <div slot="comment">a comment</div>
+  <Giscus slot="comment" />
 </RootLayout>
