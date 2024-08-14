@@ -3,7 +3,7 @@ import RootLayout from '@/layouts/RootLayout/RootLayout.astro';
 import ContentCard from '@/components/cards/ContentCard.astro';
 import ImgCard from '@/components/cards/ImgCard.astro';
 import TextCard from '@/components/cards/TextCard.astro';
-
+import giscus from '@/components/giscus/giscus.astro';
 
 <RootLayout title="home">
   <div slot="content">
@@ -11,15 +11,6 @@ import TextCard from '@/components/cards/TextCard.astro';
       <ImgCard />
     </ContentCard>
   </div>
-  <div slot="comment">
-  comment here
-    comment here
-      comment here
-    comment here
-      comment here
-    comment here
-      comment here
-    comment here
-  </div>
-
+  
+  <giscus slot='comment'/>
 </RootLayout>
