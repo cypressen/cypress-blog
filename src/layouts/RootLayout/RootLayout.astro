@@ -1,5 +1,5 @@
 ---
-import PageLayout from './PageLayout'
+import PageLayout from './PageLayout.astro'
 import MenuLayout from './MenuLayout.astro'
 const { title } = Astro.props
 ---
@@ -13,7 +13,7 @@ const { title } = Astro.props
     data-theme="pastel"
     class="max-w-svh max-h-svh overflow-hidden"
   >
-    <PageLayout client:load>
+    <PageLayout>
       <MenuLayout slot="menu" />
       <slot
         name="content"

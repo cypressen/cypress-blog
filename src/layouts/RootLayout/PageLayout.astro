@@ -1,0 +1,24 @@
+<div class="max-w-svh m-auto max-h-svh bg-blue-400">
+  <div
+    class="relative grid h-svh
+      grid-cols-1 md:grid-cols-5 lg:grid-cols-6
+      gap-4
+      p-0 md:p-0 lg:p-20
+      top-16 md:top-0"
+  >
+    <div class={`col-span-1 col-start-2 row-start-1 p-2 bg-red-300`}>
+      <slot
+        name="menu"
+        slot="menu"
+      />
+    </div>
+    <div
+      class={`col-span-3 p-2 col-start-3 row-start-1 bg-green-500 overflow-scroll`}
+    >
+      <main>
+        <slot name="content" />
+        <slot name="comment" />
+      </main>
+    </div>
+  </div>
+</div>
