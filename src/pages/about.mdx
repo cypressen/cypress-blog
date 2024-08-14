@@ -1,0 +1,18 @@
+
+import RootLayout from '@/layouts/RootLayout/RootLayout.astro';
+import ContentCard from '@/components/cards/ContentCard.astro';
+import ImgCard from '@/components/cards/ImgCard.astro';
+import TextCard from '@/components/cards/TextCard.astro';
+
+
+<RootLayout title="about">
+  <div slot="content">
+    <ContentCard>
+
+      <TextCard> 
+      # This is an about page
+       </TextCard>
+             <ImgCard />
+    </ContentCard>
+  </div>
+</RootLayout>

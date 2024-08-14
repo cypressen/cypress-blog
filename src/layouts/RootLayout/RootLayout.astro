@@ -1,0 +1,28 @@
+---
+import PageLayout from './PageLayout'
+import MenuLayout from './MenuLayout.astro'
+const { title } = Astro.props
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+  </head>
+  <body
+    data-theme="pastel"
+    class="max-w-svh max-h-svh overflow-hidden"
+  >
+    <PageLayout client:load>
+      <MenuLayout slot="menu" />
+      <slot
+        name="content"
+        slot="content"
+      />
+      <slot
+        name="comment"
+        slot="comment"
+      />
+    </PageLayout>
+  </body>
+</html>
