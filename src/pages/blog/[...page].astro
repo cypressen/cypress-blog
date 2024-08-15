@@ -3,9 +3,8 @@ import RootLayout from '@/layouts/RootLayout/RootLayout.astro'
 import { getCollection } from 'astro:content'
 import type { Page, Post } from '@/lib/Interfaces'
 import ContentCard from '@/components/cards/ContentCard.astro'
-import TextCard from '@/components/cards/TextCard.astro'
 import PostItemCard from '@/components/cards/PostItemCard.astro'
-import PageFlipCard from '@/components/cards/PageFlipCard'
+import PageFlipCard from '@/components/cards/PageFlipCard.astro'
 export async function getStaticPaths({ paginate }: { paginate: any }) {
   const posts = await getCollection('blog')
   posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
@@ -18,20 +17,15 @@ const { data: posts } = page
 <RootLayout>
   <Fragment slot="content">
     <ContentCard>
-      <ul>
-        {
-          posts.map((post: Post) => (
-            <li>
-              <a href={`/blog/${post.slug}`}>
-                <PostItemCard post={post} />
-              </a>
-            </li>
-          ))
-        }
-      </ul>
+      {
+        posts.map((post: Post) => (
+          <a href={`/blog/${post.slug}`}>
+            <PostItemCard post={post} />
+          </a>
+        ))
+      }
     </ContentCard>
     <PageFlipCard
-      client:load
       page={page}
       rootURL="/blog"
     />

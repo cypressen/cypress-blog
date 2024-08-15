@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap');
 html {
   @apply scroll-smooth;
   @apply transition;
@@ -24,10 +24,9 @@ html {
 
 
 body {
-  @apply m-0 p-0 text-left bg-cover text-xl leading-7;
+  @apply m-0 p-0 text-left bg-cover  leading-7 ;
   background-size: 100% 600px;
-  font-family: 'Maple', sans-serif;
-
+  font-family: 'Noto Sans SC', sans-serif;
 }
 
 @media (max-width: 720px) {
@@ -101,17 +100,13 @@ table tr {
 }
 
 code {
-  font-family: 'Cascadia';
+  font-family: 'Maple';
   @apply text-xl p-[2px_5px] rounded-sm;
 }
 
 pre {
-  font-family: 'Cascadia';
+  font-family: 'Maple';
   padding: 10px;
-}
-
-blockquote {
-  @apply alert;
 }
 
 pre>code {
@@ -128,77 +123,4 @@ tr:last-child td {
 
 thead th {
   border-bottom: 3px solid oklch(var(--bc) / 0.25);
-}
-
-
-.card figure{
-  @apply block;
-  @apply relative;
-}
-
-.frosti-code,
-.frosti-code span {
-  @apply text-sm;
-  background-color: oklch(var(--b2));
-}
-
-.highlight {
-  position: relative;
-  border-radius: var(--rounded-box, 1rem);
-  overflow: hidden;
-  margin: 0.5rem 0;
-  background-color: oklch(var(--b2));
-}
-
-.highlight-tools {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 1.0rem;
-  background-color: oklch(var(--nc));
-}
-
-.highlight-code{
-  @apply flex;
-}
-
-.highlight-code .code{
-  @apply flex-auto;
-  overflow: auto;
-  padding-right: 4em;
-}
-
-.highlight-code .gutter{
-  @apply flex-none text-right;
-  user-select: none;
-  border-right: 1px solid #888;
-}
-
-.highlight .code-lang {
-  font-family: 'Cascadia';
-  user-select: none;
-}
-
-.menu-item summary::after{
-  position: absolute;
-}
-
-.main-card p,
-.main-card ol,
-.main-card ul,
-.main-card li,
-.timeline-box {
-  @apply my-2 leading-normal;
-}
-
-.timeline{
-  @applt pl-0;
-}
-
-.timeline li {
-  @apply my-0 leading-none;
-}
-
-.footnotes{
-  @apply alert;
 }

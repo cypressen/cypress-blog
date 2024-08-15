@@ -4,11 +4,11 @@ const LinkItems: LinkItemType[] = [
     {
         href: '/',
         icon: 'home',
-        title: 'Home'
+        title: 'Home',
     },
     {
         href: '/about',
-        icon: 'info',
+        icon: 'about',
         title: 'About'
     }, {
         href: '/blog',

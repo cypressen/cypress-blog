@@ -3,6 +3,7 @@ export interface LinkItemType {
     href: string;
     icon: string;
     title: string;
+    svg?: string;
 }
 
 export interface SideCommentType {

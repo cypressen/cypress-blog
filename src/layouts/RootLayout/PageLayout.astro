@@ -1,18 +1,22 @@
-<div class="max-w-svh m-auto max-h-svh bg-blue-400">
+---
+import Navbar from '@/components/menu/NavBar/NavBar.astro'
+---
+
+<div class="max-w-svh m-auto max-h-full bg-slate-300">
   <div
-    class="relative grid h-svh
-      grid-cols-1 md:grid-cols-5 lg:grid-cols-6
-      gap-4
-      p-0 md:p-0 lg:p-20
-      top-16 md:top-0"
+    class="lg:grid lg:grid-cols-8 lg:p-8 gap-5 w-full lg:h-svh
+  sm:flex flex-col"
   >
-    <div class={`col-span-1 col-start-2 row-start-1 p-2 `}>
+    <div class="hidden lg:block col-span-1 col-start-2">
       <slot
         name="menu"
         slot="menu"
       />
     </div>
-    <div class={`col-span-3 p-2 col-start-3 row-start-1 overflow-auto`}>
+    <div class="block lg:hidden">
+      <Navbar />
+    </div>
+    <div class="lg:col-span-4 h-full rounded-3xl lg:overflow-y-auto">
       <main>
         <slot name="content" />
         <slot name="comment" />

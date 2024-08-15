@@ -1,18 +1,24 @@
-<div class="giscus mt-10"></div>
-<script
-  src="https://giscus.app/client.js"
-  data-repo="cypressen/Cypress-Blog"
-  data-repo-id="R_kgDOMjlCcg"
-  data-category="Announcements"
-  data-category-id="DIC_kwDOMjlCcs4ChosZ"
-  data-mapping="pathname"
-  data-strict="0"
-  data-reactions-enabled="1"
-  data-emit-metadata="0"
-  data-input-position="top"
-  data-theme="noborder_gray"
-  data-lang="en"
-  data-loading="lazy"
-  crossorigin="anonymous"
-  async
-></script>
+---
+import TextCard from '@/components/cards/TextCard.astro'
+---
+
+<br />
+<TextCard class="giscus">
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="cypressen/Cypress-Blog"
+    data-repo-id="R_kgDOMjlCcg"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOMjlCcs4ChosZ"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
+</TextCard>
