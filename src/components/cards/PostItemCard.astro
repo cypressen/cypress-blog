@@ -9,8 +9,8 @@ const {
 ---
 
 <div
-  class="rounded-box card bg-white flex lg:flex-row lg:justify-between lg:items-start flex-col lg:w-full lg:h-56
-  w-[90%] h-72 items-start mx-auto
+  class="rounded-box card bg-white flex lg:flex-row lg:justify-between lg:items-start flex-col lg:w-full lg:h-64
+  w-[90%] h-96 items-start mx-auto
   overflow-hidden group lg:my-8 my-3 shadow-xl hover:shadow-none transition-shadow duration-500"
 >
   <div class="w-[90%] sm:w-3/5 order-2 lg:order-1">
@@ -20,6 +20,14 @@ const {
       </div>
       <div class="font-semibold text-xl text-gray-400 hidden lg:block truncate">
         {data.description}
+      </div>
+      <div class="flex gap-1">
+        {
+          data.categories &&
+            data.categories.map((category) => (
+              <div class="badge badge-neutral">{category}</div>
+            ))
+        }
       </div>
       <div>
         {
@@ -34,14 +42,6 @@ const {
             data.pubDate.getMinutes() +
             ':' +
             data.pubDate.getSeconds()
-        }
-      </div>
-      <div class="flex gap-1">
-        {
-          data.categories &&
-            data.categories.map((category) => (
-              <div class="badge badge-neutral">{category}</div>
-            ))
         }
       </div>
     </div>
