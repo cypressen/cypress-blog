@@ -20,7 +20,9 @@ import BookIcon from '@/icons/book.astro'
           {item.icon === 'book' && <BookIcon />}
         </div>
 
-        <div class="text-lg font-bold">{item.title}</div>
+        <div class="text-2xl font-bold overflow-hidden text-ellipsis whitespace-nowrap">
+          {item.title}
+        </div>
       </a>
     ))
   }
