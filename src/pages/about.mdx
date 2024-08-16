@@ -3,16 +3,38 @@ import RootLayout from '@/layouts/RootLayout/RootLayout.astro';
 import ContentCard from '@/components/cards/ContentCard.astro';
 import ImgCard from '@/components/cards/ImgCard.astro';
 import TextCard from '@/components/cards/TextCard.astro';
-
+import Giscus from '@/components/giscus/Giscus.astro';
 
 <RootLayout title="about">
-  <div slot="content">
-    <ContentCard>
-             <ImgCard />
-      <TextCard> 
-        
-       </TextCard>
 
+    <ContentCard slot="content">
+             <ImgCard src="/xx.png" alt="laoba"/>
+      <TextCard> 
+    # About ME
+
+    ## My Character  
+    Hi,I am **cypress**  
+    你好，我是**赛普瑞斯**  
+    目前就读于西南交通大学计算机与人工智能学院下的软件工程，本科。  
+
+    ## What can I do?  
+    我能写的语言: `c/c++` `java` `typescript`  
+    我会用的框架: `Next.js` `Astro`  
+
+    ## What are my interests?  
+    **Galgame**、**动画**、**轻小说(尤其恋爱喜剧)**、**FPS**  
+
+    # About Zypressen
+    我将该博客命名为**Zypressen**，这是德语中的柏树。  
+    这将会是我个人网站的一个子网站。作为博客网站，我更加关注内容，因此使用`Astro`来搭建。  
+    > 至于个人网站什么时候正式上线... 得看我勤不勤  
+
+    最开始的博客网站用的是`Hexo`来搭建的，使用的`shoka`主题，后来因为长期不维护，转到了由社区继承的`shokaX`主题。  
+    `Hexo`能够非常快的搭建一个博客网站，但我是一个追求客制化的人，希望对自己创造的东西有更多的把握。因此，我弃用了使用方便、基本功能齐全的Hexo博客，转向了客制化网站之路。  
+    
+    搭建这个博客的契机是从朋友那了解到了`Astro`这个框架，了解到它是多么适合搭建关注内容的网站，于是就搁置`Next.js`的学习，立马转向`Astro`。  
+    然而不幸的是，关于设计和排版的东西我都不是很擅长，于是就参照[Frosti](https://www.saroprock.com/)这个博客来设计Zypressen。  
+       </TextCard>
     </ContentCard>
-  </div>
+    <Giscus slot="comment"/>
 </RootLayout>

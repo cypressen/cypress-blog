@@ -21,6 +21,21 @@ const {
       <div class="font-semibold text-xl text-gray-400 hidden lg:block truncate">
         {data.description}
       </div>
+      <div>
+        {
+          data.pubDate.getFullYear() +
+            '-' +
+            (data.pubDate.getMonth() + 1) +
+            '-' +
+            data.pubDate.getDate() +
+            '|' +
+            data.pubDate.getHours() +
+            ':' +
+            data.pubDate.getMinutes() +
+            ':' +
+            data.pubDate.getSeconds()
+        }
+      </div>
       <div class="flex gap-1">
         {
           data.categories &&

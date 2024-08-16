@@ -10,7 +10,12 @@ export default defineConfig({
   markdown: {
     syntaxHighlight: 'shiki',
     shikiConfig: {
-      theme: 'dracula',
+      themes: {
+        light: 'github-light',
+        dark: 'tokyo-night',
+        defaultColor: true,
+        wrap: true,
+      },
     },
     remarkPlugins: [remarkToc],
     gfm: true,
@@ -19,12 +24,6 @@ export default defineConfig({
     tailwind(),
     mdx({
       extendMarkdownConfig: true,
-      remarkPlugins: [remarkToc],
-      rehypePlugins: [rehypePresetMinify],
-      remarkRehype: {
-        footnoteLabel: 'Footnotes',
-      },
-      gfm: false,
     }),
     react(),
   ],

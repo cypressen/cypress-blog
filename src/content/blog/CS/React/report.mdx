@@ -2,7 +2,7 @@
 title: 'React learning report(TS)'
 pubDate: 2024-07-19 16:01:12
 tags: [React,Web,TS]
-cover: https://ooo.0x0.ooo/2024/05/25/OJg0Dc.jpg
+cover: https://ooo.0x0.ooo/2024/08/16/OtZTvK.png
 sticky: true
 math: true
 categories:  [CS,React,TS]
@@ -17,7 +17,7 @@ categories:  [CS,React,TS]
 2. modules 模块绑定
 	> 创建一个文件夹，再在里面创建组件文件以及对应的样式文件，组件文件import样式文件  
 3. inline 内联绑定
-	> 即在组件定义的时候使用const styles ={ color: "black",}创建样式 再由style={styles}使用  
+	> `即在组件定义的时候使用const styles ={ color: "black",}创建样式 再由style={styles}`使用  
 
 1非常适合针对全局的模块样式管理，但是当添加的组件样式过多的时候，容易发生名称冲突，因此适合在小项目中使用。虽然2比较繁琐，但它保证了代码的易于维护。3虽然简单，但它提高了组件代码的复杂度。
 
@@ -384,7 +384,7 @@ export default MyComponent;
 
 ```
 
-在是一个radio的例子。这是一个单选的radio组 需要对每一个radio设置checked={state === *value*}。
+`在是一个radio的例子。这是一个单选的radio组 需要对每一个radio设置checked={state === *value*}。`
 
 ```tsx
 import { useState } from "react";

@@ -1,11 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap');
-html {
-  @apply scroll-smooth;
-  @apply transition;
-} 
+
+$klein-blue: #002fa7;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Sans+SC&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.space-mono-regular {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.space-mono-bold {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.space-mono-regular-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.space-mono-bold-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: italic;
+}
+
+// <uniquifier>: Use a unique and descriptive class name
+
+.noto-sans-jp-regular {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+// <uniquifier>: Use a unique and descriptive class name
+
+.noto-sans-sc-regular {
+  font-family: "Noto Sans SC", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
 
 @font-face {
   font-family: 'Maple';
@@ -22,11 +63,23 @@ html {
   font-display: auto;
 }
 
+:root {
+  --a: 0.5 0.3 120; // 亮度、色度、色调
+  --s: 0.7 0.4 240; // 亮度、色度、色调
+}
+
+
+html {
+  @apply scroll-smooth;
+  @apply transition;
+} 
 
 body {
-  @apply m-0 p-0 text-left bg-cover  leading-7 ;
+  @apply m-0 p-0 text-left bg-cover  leading-7;
   background-size: 100% 600px;
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family:  'Space Mono','Noto Sans SC','Noto Sans JP';
+  // background-color: #b3bbd0;
+
 }
 
 @media (max-width: 720px) {
@@ -35,9 +88,11 @@ body {
   }
 }
 
-
-
-
+div {
+  p {
+    @apply text-stone-700 
+    }
+}
 li::marker,
 .toc-number {
   color: oklch(var(--a));
@@ -57,7 +112,8 @@ h3,
 h4,
 h5,
 h6 {
-  @apply my-2 mb-1 font-semibold;
+  @apply my-2 mb-1;
+  
 }
 
 h1 {
@@ -82,11 +138,17 @@ h5 {
 
 strong,
 b {
-  @apply font-bold my-2;
+  @apply  mx-0.5 text-black
+}
+p
+{
+  a{
+    @apply text-blue-500 underline;
+  }
 }
 
 em {
-  @apply my-2;
+  @apply my-2 ;
 }
 
 table {
@@ -95,16 +157,38 @@ table {
 }
 
 table tr {
-  @apply h-10 border-0 border-gray-300;
-  border-color: oklch(var(--nc));
+  @apply h-10 border-y-2 ;
 }
 
-code {
-  font-family: 'Maple';
-  @apply text-xl p-[2px_5px] rounded-sm;
+tr:last-child td {
+  border-bottom: none;
 }
+
+hr {
+  @apply my-2;
+}
+
+thead th {
+  border-bottom: 3px solid oklch(var(--bc) / 0.25);
+}
+
+span
+{
+  code {
+    font-family: 'Maple';
+    @apply text-xl p-[2px_5px] rounded-sm;
+  }
+}
+code {
+
+  @apply  bg-gray-300 rounded-box text-gray-800 px-1;
+}
+
+
+
 
 pre {
+  @apply border-2 my-2 py-2 rounded-badge;
   font-family: 'Maple';
   padding: 10px;
 }
@@ -113,14 +197,39 @@ pre>code {
   all: unset;
 }
 
-hr {
+
+blockquote {
+  @apply my-2 p-2 border-l-4 border-blue-300 rounded-box  text-gray-500 font-normal text-sm; 
+}
+
+ol {
+  @apply m-2 rounded-box border-2 text-gray-600;
+  counter-reset: list-counter; // 初始化计数器
+}
+ol>li {
   @apply my-2;
+  position: relative;
+  padding-left: 30px; // 增加左内边距以容纳序号
+
+  &::before {
+    counter-increment: list-counter; // 递增计数器
+    content: counter(list-counter)'  '; // 显示计数器的值
+    position: relative;
+    color: $klein-blue // 可以根据需要更改颜色
+  }
 }
 
-tr:last-child td {
-  border-bottom: none;
+
+ul {
+  @apply m-2 rounded-box border-2 text-gray-600;
+  list-style-type: disc;
+  list-style-position: inside;
+  
+}
+ul>li {
+    @apply  m-2 rounded-box p-2;
+    &::marker {
+      color: $klein-blue; // 设置前导圆的颜色
+    }
 }
 
-thead th {
-  border-bottom: 3px solid oklch(var(--bc) / 0.25);
-}

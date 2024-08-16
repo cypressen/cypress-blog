@@ -64,7 +64,7 @@ Height and average depth are important properties of BSTs.
 - The **“average depth”** of a tree is the average depth of a tree’s nodes.
   - (**0**x1 + **1**x2 + **2**x4 + **3**x6 + **4**x1)/(1+2+4+6+1) = 2.35
 
-![](/pic/CS/CS61B/week7/1.png)
+![](./assets/week7/1.png)
 
 Height and average depth determine runtimes for BST operations.
 
@@ -98,7 +98,7 @@ Height and average depth determine runtimes for BST operations.
 
 **B-tree**需含有一个参数L，用来指一个节点的数据数目上限。例如L = 3，就可以有如图所示的树
 
-![](/pic/CS/CS61B/week7/2.png)
+![](./assets/week7/2.png)
 
 通过这种将一个节点变化为数组形式的方式，使得B-tree可以保持非常不错的平衡度。
 
@@ -125,7 +125,7 @@ Because of the way B-Trees are constructed, we get two nice invariants:
 - Example: The tree given below is impossible.
   - Leaves ([1] and [5 6 7]) are a different distance from the source.
   - Non-leaf node [2 3] has two items but only only one child. Should have three children.
-  - ![](/pic/CS/CS61B/week7/3.png)注意，该树不存在如上规则下
+  - ![](./assets/week7/3.png)注意，该树不存在如上规则下
 
 We have not proven these invariants rigorously, but try thinking them through.
 
@@ -149,7 +149,7 @@ We have not proven these invariants rigorously, but try thinking them through.
 
 **左旋**
 
-![](/pic/CS/CS61B/week7/4.png)
+![](./assets/week7/4.png)
 
 图示进行的是对G的左旋操作 `G.rotateLeft()`
 
@@ -161,7 +161,7 @@ We have not proven these invariants rigorously, but try thinking them through.
 - 不关心除主要操作对象外的其他节点
 
 **右旋**
-![](/pic/CS/CS61B/week7/5.png)
+![](./assets/week7/5.png)
 
 图示进行的是对P的右旋操作 `P.rotateRight()`
 
@@ -195,7 +195,7 @@ LLRB的设计以B-Tree为基础，LLRB相当于是B-Tree的一般BST形式的映
 >
 > 映射也可以简单看成把数据组形式的节点拆分再通过一条红线联系
 
-![](/pic/CS/CS61B/week7/6.png)
+![](./assets/week7/6.png)
 
 它就是通过**红色的**(***red***) **路径**(***path***)进行映射，这个路径通常考量左向
 
@@ -203,7 +203,7 @@ LLRB的设计以B-Tree为基础，LLRB相当于是B-Tree的一般BST形式的映
 
 注意幻灯片里的一道题
 
-![](/pic/CS/CS61B/week7/7.png)
+![](./assets/week7/7.png)
 
 很简单的思路，就是按上诉的映射规则逆向还原节点，再判断是否为B-Tree
 
@@ -213,7 +213,7 @@ LLRB的设计以B-Tree为基础，LLRB相当于是B-Tree的一般BST形式的映
 
 事实上，这里有一个更好的方法。
 
-![](/pic/CS/CS61B/week7/8.png)
+![](./assets/week7/8.png)
 
 观察该B-Tree，一条线上，一个组合的节点对应了一次拆分，而一次拆分产生一条红线。
 
@@ -252,7 +252,7 @@ Q是预先设定的，当哈希表中的item数量N，除以bucket数量M，即(
 
 最后会得到时间复杂度为常数级的`add(x), contains(x)`方法。
 
-![](/pic/CS/CS61B/week7/9.png)
+![](./assets/week7/9.png)
 
 ---
 
@@ -260,7 +260,7 @@ Q是预先设定的，当哈希表中的item数量N，除以bucket数量M，即(
 
 ### int hashCode()
 
-![](/pic/CS/CS61B/week7/10.png)
+![](./assets/week7/10.png)
 
 `int hashCode()`已经在类`Object`中声明，因此，自定义类可以Override该方法。
 
@@ -270,7 +270,7 @@ Q是预先设定的，当哈希表中的item数量N，除以bucket数量M，即(
 
 如下图所示
 
-![](/pic/CS/CS61B/week7/11.png)
+![](./assets/week7/11.png)
 
 在Java 8 中，使用了素数31作为基数
 
