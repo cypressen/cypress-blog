@@ -1,8 +1,8 @@
 ---
-import PageLayout from './PageLayout.astro'
-import MenuLayout from './MenuLayout.astro'
-import '@/styles/global.scss'
-const { title } = Astro.props
+import PageLayout from "./PageLayout.astro";
+import MenuLayout from "./MenuLayout.astro";
+import "@/styles/global.scss";
+const { title } = Astro.props;
 ---
 
 <html lang="en">
@@ -10,17 +10,11 @@ const { title } = Astro.props
     <meta charset="utf-8" />
     <title>{title}</title>
   </head>
-  <body class="lg:max-w-svh lg:max-h-svh lg:overflow-hidden">
+  <body class="lg:max-w-svh lg:max-h-svh">
     <PageLayout>
       <MenuLayout slot="menu" />
-      <slot
-        name="content"
-        slot="content"
-      />
-      <slot
-        name="comment"
-        slot="comment"
-      />
+      <slot name="content" slot="content" />
+      <slot name="comment" slot="comment" />
     </PageLayout>
   </body>
 </html>

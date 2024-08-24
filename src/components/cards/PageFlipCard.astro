@@ -1,37 +1,38 @@
 ---
-import type { Page } from '@/lib/Interfaces'
+import type { Page } from "@/lib/Interfaces";
 
 type Props = {
-  page: Page<any>
-  rootURL: string
-}
-const { page, rootURL }: Props = Astro.props
+  page: Page<any>;
+  rootURL: string;
+};
+const { page, rootURL }: Props = Astro.props;
 ---
 
 <div class="flex items-start justify-between mb-4">
-  <button class={`btn ${page.currentPage === 1 ? 'btn-disabled' : ''}`}>
-    <a href={page.url.first}>{`<<`} </a>
-  </button>
+  <a
+    class={`btn ${page.currentPage === 1 ? "btn-disabled" : ""}`}
+    href={page.url.first}
+    >{`<<`}
+  </a>
   <div class="flex justify-center flex-grow">
-    <button class={`btn ${page.currentPage === 1 ? 'btn-disabled' : ''}`}>
-      <a href={page.url.prev}>{`<`}</a>
-    </button>
+    <a
+      class={`btn ${page.currentPage === 1 ? "btn-disabled" : ""}`}
+      href={page.url.prev}>{`<`}</a
+    >
     <div
       class="tooltip"
       data-tip={`Page ${page.currentPage} of ${page.lastPage}`}
     >
-      <div class="btn">{page.currentPage}</div>
+      <a class="btn">{page.currentPage}</a>
     </div>
-
-    <button
-      class={`btn ${page.currentPage === page.lastPage ? 'btn-disabled' : ''}`}
+    <a
+      class={`btn ${page.currentPage === page.lastPage ? "btn-disabled" : ""}`}
+      href={page.url.next}>{`>`}</a
     >
-      <a href={page.url.next}>{`>`}</a>
-    </button>
   </div>
-  <button
-    class={`btn ${page.currentPage === page.lastPage ? 'btn-disabled' : ''}`}
-  >
-    <a href={page.url.last}>{`>>`}</a>
-  </button>
+  <a
+    class={`btn ${page.currentPage === page.lastPage ? "btn-disabled" : ""}`}
+    href={page.url.last}
+    >{`>>`}
+  </a>
 </div>

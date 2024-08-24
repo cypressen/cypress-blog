@@ -1,8 +1,8 @@
 ---
-import LinkItems from '@/lib/LinkItems'
-import HomeIcon from '@/icons/home.astro'
-import AboutIcon from '@/icons/about.astro'
-import BookIcon from '@/icons/book.astro'
+import LinkItems from "@/lib/LinkItems";
+import HomeIcon from "@/icons/home.astro";
+import AboutIcon from "@/icons/about.astro";
+import BookIcon from "@/icons/book.astro";
 ---
 
 <div
@@ -15,9 +15,9 @@ import BookIcon from '@/icons/book.astro'
         class="flex flex-row items-center gap-2 p-2 hover:bg-slate-400 rounded-badge"
       >
         <div>
-          {item.icon === 'home' && <HomeIcon />}
-          {item.icon === 'about' && <AboutIcon />}
-          {item.icon === 'book' && <BookIcon />}
+          {item.icon === "home" && <HomeIcon />}
+          {item.icon === "about" && <AboutIcon />}
+          {item.icon === "book" && <BookIcon />}
         </div>
 
         <div class="text-2xl font-bold overflow-hidden text-ellipsis whitespace-nowrap">

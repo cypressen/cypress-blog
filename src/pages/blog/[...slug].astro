@@ -1,32 +1,29 @@
 ---
-import RootLayout from '@/layouts/RootLayout/RootLayout.astro'
-import Giscus from '@/components/giscus/Giscus.astro'
-import TextCard from '@/components/cards/TextCard.astro'
-import ContentCard from '@/components/cards/ContentCard.astro'
-import RemoteImgCard from '@/components/cards/RemoteImgCard.astro'
-import { type CollectionEntry, getCollection } from 'astro:content'
+import RootLayout from "@/layouts/RootLayout/RootLayout.astro";
+import Giscus from "@/components/giscus/Giscus.astro";
+import TextCard from "@/components/cards/TextCard.astro";
+import ContentCard from "@/components/cards/ContentCard.astro";
+import RemoteImgCard from "@/components/cards/RemoteImgCard.astro";
+import { type CollectionEntry, getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog')
+  const posts = await getCollection("blog");
   return posts.map((post) => ({
     params: { slug: post.slug },
     props: post,
-  }))
+  }));
 }
-type Props = CollectionEntry<'blog'>
+type Props = CollectionEntry<"blog">;
 
-const post = Astro.props
-const { Content } = await post.render()
+const post = Astro.props;
+const { Content } = await post.render();
 ---
 
 <RootLayout>
   <ContentCard slot="content">
     {
       post.data.cover && (
-        <RemoteImgCard
-          src={post.data.cover}
-          alt={post.data.title}
-        />
+        <RemoteImgCard src={post.data.cover} alt={post.data.title} />
       )
     }
     <TextCard>
