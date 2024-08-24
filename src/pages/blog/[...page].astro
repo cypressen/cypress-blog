@@ -1,17 +1,17 @@
 ---
-import RootLayout from '@/layouts/RootLayout/RootLayout.astro'
-import { getCollection } from 'astro:content'
-import type { Page, Post } from '@/lib/Interfaces'
-import ContentCard from '@/components/cards/ContentCard.astro'
-import PostItemCard from '@/components/cards/PostItemCard.astro'
-import PageFlipCard from '@/components/cards/PageFlipCard.astro'
+import RootLayout from "@/layouts/RootLayout/RootLayout.astro";
+import { getCollection } from "astro:content";
+import type { Page, Post } from "@/lib/Interfaces";
+import ContentCard from "@/components/cards/ContentCard.astro";
+import PostItemCard from "@/components/cards/PostItemCard.astro";
+import PageFlipCard from "@/components/cards/PageFlipCard.astro";
 export async function getStaticPaths({ paginate }: { paginate: any }) {
-  const posts = await getCollection('blog')
-  posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  return paginate(posts, { pageSize: 4 })
+  const posts = await getCollection("blog");
+  posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  return paginate(posts, { pageSize: 4 });
 }
-const { page }: { page: Page<Post> } = Astro.props
-const { data: posts } = page
+const { page }: { page: Page<Post> } = Astro.props;
+const { data: posts } = page;
 ---
 
 <RootLayout>
@@ -25,9 +25,6 @@ const { data: posts } = page
         ))
       }
     </ContentCard>
-    <PageFlipCard
-      page={page}
-      rootURL="/blog"
-    />
+    <PageFlipCard page={page} rootURL="/blog" />
   </Fragment>
 </RootLayout>

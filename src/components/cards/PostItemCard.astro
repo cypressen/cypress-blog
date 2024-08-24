@@ -1,11 +1,11 @@
 ---
-import type { Post } from '@/lib/Interfaces'
+import type { Post } from "@/lib/Interfaces";
 type Props = {
-  post: Post
-}
+  post: Post;
+};
 const {
   post: { data },
-}: Props = Astro.props
+}: Props = Astro.props;
 ---
 
 <div
@@ -32,15 +32,15 @@ const {
       <div>
         {
           data.pubDate.getFullYear() +
-            '-' +
+            "-" +
             (data.pubDate.getMonth() + 1) +
-            '-' +
+            "-" +
             data.pubDate.getDate() +
-            '|' +
+            "|" +
             data.pubDate.getHours() +
-            ':' +
+            ":" +
             data.pubDate.getMinutes() +
-            ':' +
+            ":" +
             data.pubDate.getSeconds()
         }
       </div>

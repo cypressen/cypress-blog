@@ -4,7 +4,7 @@
 
 $klein-blue: #002fa7;
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Noto+Sans+SC:wght@500&family=Space+Mono:ital,wght@0,500;0,700;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Noto+Sans+SC:wght@500&family=Space+Mono:ital,wght@0,500;0,700;1,400;1,700&display=swap");
 
 .space-mono-regular {
   font-family: "Space Mono", monospace;
@@ -49,15 +49,15 @@ $klein-blue: #002fa7;
 }
 
 @font-face {
-  font-family: 'Maple';
-  src: url('/fonts/MapleMono-NF-Regular.woff2') format('woff2');
+  font-family: "Maple";
+  src: url("/fonts/MapleMono-NF-Regular.woff2") format("woff2");
   font-weight: 700; // 字体粗细
   font-style: normal; // 字体样式
   font-display: auto; // 字体显示策略
 }
 @font-face {
-  font-family: 'Cascadia';
-  src: url('/fonts/CascadiaCode.woff2') format('woff2');
+  font-family: "Cascadia";
+  src: url("/fonts/CascadiaCode.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: auto;
@@ -68,26 +68,22 @@ $klein-blue: #002fa7;
   --s: 0.7 0.4 240; // 亮度、色度、色调
 }
 
-
-
 html {
   @apply scroll-smooth;
   @apply transition;
-
-} 
+}
 
 body {
-  @apply m-0 p-0 text-left bg-cover leading-7 ;
+  @apply m-0 p-0 text-left bg-cover leading-7;
   // background-size: 100% 600px;
-  font-family:  'Space Mono','Noto Sans SC','Noto Sans JP';
+  font-family: "Space Mono", "Noto Sans SC", "Noto Sans JP";
   // background-color: #b3bbd0;
-
 }
 
 div {
   p {
     @apply text-stone-700 text-xl py-2;
-    }
+  }
 }
 li::marker,
 .toc-number {
@@ -109,7 +105,6 @@ h4,
 h5,
 h6 {
   @apply my-2 mb-1;
-  
 }
 
 h1 {
@@ -117,43 +112,42 @@ h1 {
 }
 
 h2 {
-  @apply text-5xl leading-snug mt-6 ;
+  @apply text-5xl leading-snug mt-6;
 }
 
 h3 {
-  @apply text-4xl leading-normal mt-5 ;
+  @apply text-4xl leading-normal mt-5;
 }
 
 h4 {
-  @apply text-3xl leading-relaxed mt-4 ;
+  @apply text-3xl leading-relaxed mt-4;
 }
 
 h5 {
-  @apply text-2xl leading-relaxed mt-3 ;
+  @apply text-2xl leading-relaxed mt-3;
 }
 
 strong,
 b {
-  @apply  mx-0.5 text-black
+  @apply mx-0.5 text-black;
 }
-p
-{
-  a{
+p {
+  a {
     @apply text-blue-500 underline;
   }
 }
 
 em {
-  @apply my-2 ;
+  @apply my-2;
 }
 
 table {
   @apply border-collapse my-2;
-  table-layout: fixed
+  table-layout: fixed;
 }
 
 table tr {
-  @apply h-10 border-y-2 ;
+  @apply h-10 border-y-2;
 }
 
 tr:last-child td {
@@ -168,36 +162,30 @@ thead th {
   border-bottom: 3px solid oklch(var(--bc) / 0.25);
 }
 
-span
-{
+span {
   code {
-    font-family: 'Maple';
+    font-family: "Maple";
     @apply text-xl p-[2px_5px] rounded-sm;
   }
 }
 code {
-
-  @apply  bg-gray-300 rounded-box text-gray-800 px-1;
+  @apply bg-gray-300 rounded-box text-gray-800 px-1;
 }
-
-
-
 
 pre {
   @apply border-2 my-2 py-2 rounded-badge;
-  font-family: 'Maple';
+  font-family: "Maple";
   padding: 10px;
 }
 
-pre>code {
+pre > code {
   all: unset;
 }
 
-
 blockquote {
-  @apply my-2 p-2 border-l-4 border-blue-300 rounded-box ;
+  @apply my-2 p-2 border-l-4 border-blue-300 rounded-box;
   p {
-      @apply text-gray-600  text-lg; 
+    @apply text-gray-600  text-lg;
   }
 }
 
@@ -205,30 +193,27 @@ ol {
   @apply m-2 rounded-box border-2 text-gray-600;
   counter-reset: list-counter; // 初始化计数器
 }
-ol>li {
+ol > li {
   @apply my-2;
   position: relative;
   padding-left: 30px; // 增加左内边距以容纳序号
 
   &::before {
     counter-increment: list-counter; // 递增计数器
-    content: counter(list-counter)'  '; // 显示计数器的值
+    content: counter(list-counter) "  "; // 显示计数器的值
     position: relative;
-    color: $klein-blue // 可以根据需要更改颜色
+    color: $klein-blue; // 可以根据需要更改颜色
   }
 }
-
 
 ul {
   @apply m-2 rounded-box border-2 text-gray-600;
   list-style-type: disc;
   list-style-position: inside;
-  
 }
-ul>li {
-    @apply  m-2 rounded-box p-2;
-    &::marker {
-      color: $klein-blue; // 设置前导圆的颜色
-    }
+ul > li {
+  @apply m-2 rounded-box p-2;
+  &::marker {
+    color: $klein-blue; // 设置前导圆的颜色
+  }
 }
-
