@@ -1,0 +1,56 @@
+---
+title: '(Buffer)一种主题切换的方案'
+pubDate: 2024-08-13 20:34:11
+tags: ['Astro','React']
+cover: https://ooo.0x0.ooo/2024/08/16/OtZbOS.png
+# sticky: true
+categories:  ['CS','Front-end']
+
+
+---
+
+# Idea
+
+*Main Idea*: 为了保持在不同页面下保持同一主题，选择在localStorage存储键值对(theme: value)。
+
+抽象出三个用于实现主题切换的部分： 组件，实际样式，键值对。
+
+由于localStorage下的键值对能够留存，因此另外两个部分都要与键值对同步。
+
+主要实现
+```html
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  	// 设置键值对并使样式同步
+  	const setTheme = (theme: string) => {
+      document.documentElement.setAttribute("data-theme", theme); 
+      localStorage.setItem("theme", theme);
+    };
+    // 组件同步
+        const syncThemeToggle = () => {
+      const currentTheme = localStorage.getItem("theme");
+            const isDark = currentTheme === "dark";
+      themeToggle.checked = isDark;
+    };
+
+  });
+</script>
+```
+
+此外，可以再添加一个函数实现当用户初次打开时，以他的浏览器主题为准初始化主题样式  
+```html
+<script>
+      // 确保主题在不同的布局中与localStorage下的theme值同步，并且在用户首次访问的时候默认为当前用户的系统主题
+      // Ensure that the theme is in sync with the localStorage theme value across different layouts and defaults to the current user's system theme on the first visit
+      (function () {
+        const storedTheme = localStorage.getItem("theme");
+        const userPreferredTheme = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches
+          ? "dark"
+          : "mytheme";
+        const theme = storedTheme || userPreferredTheme;
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+</script>
+```

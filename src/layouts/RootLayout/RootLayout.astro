@@ -2,13 +2,32 @@
 import PageLayout from "./PageLayout.astro";
 import MenuLayout from "./MenuLayout.astro";
 import "@/styles/global.scss";
+import { DefaultTheme, DarkTheme } from "@/lib/Themes";
 const { title } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" data-theme={DefaultTheme}>
   <head>
     <meta charset="utf-8" />
     <title>{title}</title>
+    <script is:inline>
+      // 确保主题在不同的布局中与localStorage下的theme值同步，并且在用户首次访问的时候默认为当前用户的系统主题
+      // Ensure that the theme is in sync with the localStorage theme value across different layouts and defaults to the current user's system theme on the first visit
+      const setTheme = () => {
+        const theme =
+          localStorage.getItem("theme") ||
+          (() => {
+            localStorage.setItem(
+              "theme",
+              window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? DarkTheme
+                : DefaultTheme
+            );
+          })();
+        document.documentElement.setAttribute("data-theme", theme);
+      };
+      setTheme();
+    </script>
   </head>
   <body class="lg:max-w-svh lg:max-h-svh">
     <PageLayout>

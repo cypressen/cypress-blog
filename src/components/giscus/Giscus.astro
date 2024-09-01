@@ -21,3 +21,53 @@ import TextCard from "@/components/cards/TextCard.astro";
     crossorigin="anonymous"
     async></script>
 </TextCard>
+
+<script>
+  import { DarkTheme } from "@/lib/Themes";
+  document.addEventListener("DOMContentLoaded", () => {
+    const createGiscusScript = (theme: string) => {
+      giscusContainer.innerHTML = "";
+      const script = document.createElement("script");
+      script.src = "https://giscus.app/client.js";
+      script.setAttribute("data-repo", "cypressen/Cypress-Blog");
+      script.setAttribute("data-repo-id", "R_kgDOMjlCcg");
+      script.setAttribute("data-category", "Announcements");
+      script.setAttribute("data-category-id", "DIC_kwDOMjlCcs4ChosZ");
+      script.setAttribute("data-mapping", "pathname");
+      script.setAttribute("data-strict", "0");
+      script.setAttribute("data-reactions-enabled", "1");
+      script.setAttribute("data-emit-metadata", "0");
+      script.setAttribute("data-input-position", "top");
+      script.setAttribute("data-theme", theme);
+      script.setAttribute("data-lang", "en");
+      script.setAttribute("data-loading", "lazy");
+      script.setAttribute("crossorigin", "anonymous");
+      script.async = true;
+      return script;
+    };
+    const giscusContainer = document.querySelector(".giscus")!;
+
+    const initialTheme =
+      localStorage.getItem("theme") === DarkTheme ? "dark" : "light";
+    let giscusScript = createGiscusScript(initialTheme);
+    giscusContainer.appendChild(giscusScript);
+
+    // 监听主题变化
+    const observer = new MutationObserver(() => {
+      giscusContainer.innerHTML = "";
+      const newTheme =
+        localStorage.getItem("theme") === DarkTheme ? "dark" : "light";
+      if (giscusScript) {
+        giscusContainer.removeChild(giscusScript);
+      }
+      giscusScript = createGiscusScript(newTheme);
+      giscusContainer.appendChild(giscusScript);
+      location.reload();
+    });
+
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+  });
+</script>

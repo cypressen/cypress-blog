@@ -1,0 +1,30 @@
+---
+title: 'shiki-in-astro'
+pubDate: 2024-09-1 22:37:49
+tags: ['Astro','React']
+cover: https://ooo.0x0.ooo/2024/08/16/OtZbOS.png
+# sticky: true
+categories:  ['CS','Astro']
+
+
+---
+
+# dark & light
+要让shiki响应自定义的暗色模式，需添加一条
+```css
+html[data-theme="dark"] {
+  .astro-code, 
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    /* 可选，用于定义字体样式 */
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+}
+```
+因为在配置了light, dark的主题后，shiki则是提供了--shiki-dark,--shiki-dark-bg等等一系列变量的值，需要手动去为自定义主题配置响应式css
+```css
+html[data-theme="dark"]{}
+```

@@ -1,0 +1,37 @@
+---
+import LightIcon from "@/icons/lightMode.astro";
+import DarkIcon from "@/icons/darkMode.astro";
+---
+
+<label class="swap swap-flip text-9xl">
+  <input type="checkbox" id="themeToggle" />
+  <div class="swap-on">
+    <DarkIcon />
+  </div>
+  <div class="swap-off">
+    <LightIcon />
+  </div>
+</label>
+<script>
+  import { DefaultTheme, DarkTheme } from "@/lib/Themes";
+  document.addEventListener("DOMContentLoaded", () => {
+    const setTheme = (theme: string) => {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+    };
+
+    const themeToggle = document.getElementById(
+      "themeToggle"
+    ) as HTMLInputElement;
+    const syncThemeToggle = () => {
+      const currentTheme = localStorage.getItem("theme");
+      const isDark = currentTheme === DarkTheme;
+      themeToggle.checked = isDark;
+    };
+    syncThemeToggle();
+    themeToggle.addEventListener("change", () => {
+      themeToggle.checked ? setTheme(DarkTheme) : setTheme(DefaultTheme);
+      syncThemeToggle();
+    });
+  });
+</script>

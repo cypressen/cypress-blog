@@ -1,9 +1,41 @@
 ---
 import ProfileCard from "@/components/menu/ProfileCard/ProfileCard.astro";
 import MenuCard from "@/components/menu/MenuCard/MenuCard.astro";
+import ThemeToggle from "@/components/ThemeToggle.astro";
 ---
 
 <div class="sticky top-8 flex flex-col gap-5">
   <ProfileCard />
   <MenuCard />
+  <!-- <input type="checkbox" value="dark" class="toggle" id="themeToggle" /> -->
+  <ThemeToggle />
 </div>
+<!-- <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // const theme =
+    //   localStorage.getItem("theme") ||
+    //   window.matchMedia("(prefers-color-scheme: dark)").matches
+    //     ? "dark"
+    //     : "mytheme";
+
+    const setTheme = (theme: string) => {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+    };
+    // setTheme(theme);
+    const themeToggle = document.getElementById(
+      "themeToggle"
+    ) as HTMLInputElement;
+    const syncThemeToggle = () => {
+      const currentTheme = localStorage.getItem("theme");
+      const isDark = currentTheme === "dark";
+      themeToggle.checked = isDark;
+    };
+    syncThemeToggle();
+    const handleThemeChange = () => {
+      themeToggle.checked ? setTheme("dark") : setTheme("mytheme");
+      syncThemeToggle();
+    };
+    themeToggle.addEventListener("change", handleThemeChange);
+  });
+</script> -->
